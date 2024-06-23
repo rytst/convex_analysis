@@ -1,7 +1,7 @@
 #import "@preview/unequivocal-ams:0.1.0": ams-article, theorem, proof
 
 #show: ams-article.with(
-  title: [CONVEX ANALYSIS WORKSHOP],
+  title: [Convex Analysis Workshop],
   authors: (
     (
       name: "Ryuto Saito",
@@ -32,13 +32,20 @@
 
 
 
-= CONVEX FUNCTIONS
+= Convex functions
 
 == Definitions and basic properties
 
 
 #definition[
-  Let $S subset.eq RR^n$. A function $f colon S -> RR union brace.l oo brace.r$
+  Let $S subset.eq RR^n$. A function $f colon S -> RR union {oo}$ is convex if $bold(op("dom")) f$ is a convex set and
+  $
+    forall bold(x), bold(y) in bold(op("dom")) f, forall t in {0, 1}, f(t bold(x) + (1-t) bold(y) lt.eq t f(bold(x)) + (1-t) f(bold(y)))
+  $
+  where $bold(op("dom")) f$ is the effective domain of $f$:
+  $
+    bold(op("dom")) f := {bold(x) in S | f(bold(x)) < oo}.
+  $
 ]
 
 

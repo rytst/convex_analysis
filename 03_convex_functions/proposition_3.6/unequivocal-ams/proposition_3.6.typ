@@ -31,7 +31,7 @@
 #let example = thmplain("example", "Example").with(numbering: none)
 #let proof = thmproof("proof", "Proof")
 
-
+#set math.equation(numbering: "(1)")
 
 
 = Convex functions
@@ -64,7 +64,11 @@
 == Lemma
 
 #lemma[
-
+  A differentiable function $f : RR -> RR$ is convex if and only if
+  $
+    f(y) gt.eq f(x) + f'(x) (y - x)
+  $
+  for all $x$ and $y$ in $bold(op("dom")) f$.
 ]
 
 == Exercise
@@ -73,11 +77,69 @@
   Suppose $f$ is differentiable. Then $f$ is convex if and only if $bold(op("dom")) f$ is convex and
   $
     forall bold(x), bold(y) in bold(op("dom")) f, f(bold(y)) gt.eq f(bold(x)) + nabla f(bold(x))^(upright(T)) (bold(y) - bold(x)).
-  $
+  $ <ineq>
 ]
 
 #proof[
+  Let $bold(x), bold(y) in RR^n, bold(z) = t bold(y) + (1-t) bold(x)$ for $t in [0, 1]$, and
+  $
+    g(t) = f(t bold(y) + (1-t) bold(x)).
+  $
+  Then, using chain rule,
+  $
+    g'(t) &= d / (d t) f(t bold(y) + (1-t) bold(x)) \
+    &= d / (d t) f(bold(z)) \
+    &= sum_(i=1)^n d / (d t) z_i partial / (partial z_i) f(bold(z)) \
+    &= (partial / (partial z_1) f(bold(z)) , dots.h ,  partial / (partial z_n) f(bold(z)))
+    mat(
+      delim: "[",
+      d / (d t) z_1;
+      dots.v;
+      d / (d t) z_n;
+    ) \
+    &=
+    mat(
+      delim: "[",
+      partial / (partial z_1) f(bold(z));
+      dots.v;
+      partial / (partial z_n) f(bold(z));
+    )^upright(T)
+    mat(
+      delim: "[",
+      d / (d t) (t y_1 + (1-t) x_1);
+      dots.v;
+      d / (d t) (t y_n + (1-t) x_n);
+    ) \
+    &= nabla f(bold(z))^upright(T)
+    mat(
+      delim: "[",
+      y_1 - x_1;
+      dots.v;
+      y_n - x_n;
+    ) \
+    &= nabla f(t bold(y) + (1-t) bold(x))^upright(T) (bold(y) - bold(x)).
+  $
+  $(==>)$
+  Assume $f$ is convex. Then, $g$ is convex.
+  By lemma, we have
+  $
+    g(1) gt.eq g(0) + g'(0),
+  $
+  which means that
+  $
+    f(bold(y)) gt.eq f(bold(x)) + nabla f(bold(x))^upright(T) (bold(y) - bold(x)).
+  $
 
+  $(<==)$
+  Assume that (@ineq) holds for any $bold(x), bold(y) in bold(op("dom")) f$.
+  Let $t_1, t_2 in [0, 1]$. Since $bold(x), bold(y) in bold(op("dom")) f$,
+  $
+    t_1 bold(y) + (1 - t_1) bold(x) in bold(op("dom")) f
+  $
+  and
+  $
+    t_2 bold(y) + (1 - t_2) bold(x) in bold(op("dom")) f.
+  $
 ]
 
 

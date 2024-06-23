@@ -42,12 +42,22 @@
 #definition("Convex function")[
   Let $S subset.eq RR^n$. A function $f colon S -> RR union {oo}$ is convex if $bold(op("dom")) f$ is a convex set and
   $
-    forall bold(x), bold(y) in bold(op("dom")) f, forall t in {0, 1}, f(t bold(x) + (1-t) bold(y) lt.eq t f(bold(x)) + (1-t) f(bold(y)))
+    forall bold(x), bold(y) in bold(op("dom")) f, forall t in [0, 1], f(t bold(x) + (1-t) bold(y) lt.eq t f(bold(x)) + (1-t) f(bold(y)))
   $
   where $bold(op("dom")) f$ is the effective domain of $f$:
   $
     bold(op("dom")) f := {bold(x) in S | f(bold(x)) < oo}.
   $
+]
+
+#definition("Gradient")[
+  Let $f : RR^n -> RR$ be a differentiable function. The gradient of $f$ at $bold(x) in RR^n$, denoted $nabla f(bold(x))$,
+  is an n-dimensional vector whose entries are given by
+  $
+    (nabla f(bold(x)))_i := (partial f(bold(x))) / (partial x_i).
+  $
+  The gradient of $f$ is the vector containing all the partial derivatives. 
+  Element i of the gradient is the partial derivative of $f$ with respect to $x_i$.
 ]
 
 
@@ -62,8 +72,12 @@
 #proposition("First-order convexity condition")[
   Suppose $f$ is differentiable. Then $f$ is convex if and only if $bold(op("dom")) f$ is convex and
   $
-    forall bold(x), bold(y) in bold(op("dom")) f, f(bold(y)) gt.eq f(bold(x)) + f(bold(x))^T (bold(y) - bold(x)).
+    forall bold(x), bold(y) in bold(op("dom")) f, f(bold(y)) gt.eq f(bold(x)) + nabla f(bold(x))^(upright(T)) (bold(y) - bold(x)).
   $
+]
+
+#proof[
+
 ]
 
 

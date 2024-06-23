@@ -25,6 +25,8 @@
   titlefmt: strong
 )
 #let definition = thmbox("definition", "Definition", inset: (x: 1.2em, top: 1em))
+#let lemma = thmbox("lemma", "Lemma", inset: (x: 1.2em, top: 1em))
+#let proposition = thmbox("proposition", "Proposition", inset: (x: 1.2em, top: 1em))
 
 #let example = thmplain("example", "Example").with(numbering: none)
 #let proof = thmproof("proof", "Proof")
@@ -34,10 +36,10 @@
 
 = Convex functions
 
-== Definitions and basic properties
+== Definitions
 
 
-#definition[
+#definition("Convex function")[
   Let $S subset.eq RR^n$. A function $f colon S -> RR union {oo}$ is convex if $bold(op("dom")) f$ is a convex set and
   $
     forall bold(x), bold(y) in bold(op("dom")) f, forall t in {0, 1}, f(t bold(x) + (1-t) bold(y) lt.eq t f(bold(x)) + (1-t) f(bold(y)))
@@ -49,8 +51,20 @@
 ]
 
 
+== Lemma
 
+#lemma[
 
+]
+
+== Exercise
+
+#proposition("First-order convexity condition")[
+  Suppose $f$ is differentiable. Then $f$ is convex if and only if $bold(op("dom")) f$ is convex and
+  $
+    forall bold(x), bold(y) in bold(op("dom")) f, f(bold(y)) gt.eq f(bold(x)) + f(bold(x))^T (bold(y) - bold(x)).
+  $
+]
 
 
 @Boyd

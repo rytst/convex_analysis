@@ -33,6 +33,20 @@
 
 #set math.equation(numbering: "(1)")
 
+#show ref: it => {
+  let eq = math.equation
+  let el = it.element
+  if el != none and el.func() == eq {
+    // Override equation references.
+    numbering(
+      el.numbering,
+      ..counter(eq).at(el.location())
+    )
+  } else {
+    // Other references as usual.
+    it
+  }
+}
 
 = Convex functions
 
@@ -131,15 +145,26 @@
   $
 
   $(<==)$
-  Assume that (@ineq) holds for any $bold(x), bold(y) in bold(op("dom")) f$.
+  Assume that @ineq holds for any $bold(x), bold(y) in bold(op("dom")) f$.
   Let $t_1, t_2 in [0, 1]$. Since $bold(x), bold(y) in bold(op("dom")) f$,
+  $t_1 bold(y) + (1 - t_1) bold(x) in bold(op("dom")) f$ and $t_2 bold(y) + (1 - t_2) bold(x) in bold(op("dom")) f$.
+  From @ineq,
   $
-    t_1 bold(y) + (1 - t_1) bold(x) in bold(op("dom")) f
+    & space space space f(t_1 bold(y) + (1 - t_1) bold(x)) \
+    &gt.eq f(t_2 bold(y) + (1 - t_2) bold(x)) \
+    & space space + nabla f(t_2 bold(y) + (1 - t_2) bold(x)) (t_1 bold(y) + (1 - t_1) bold(x) - (t_2 bold(y) + (1 - t_2) bold(x))) \
+    &= f(t_2 bold(y) + (1 - t_2) bold(x)) \
+    & space space + nabla f(t_2 bold(y) + (1 - t_2) bold(x)) ((t_1 - t_2) bold(y) + (1 - t_1 - (1 - t_2)) bold(x)) \
+    &= f(t_2 bold(y) + (1 - t_2) bold(x)) \
+    & space space + nabla f(t_2 bold(y) + (1 - t_2) bold(x)) ((t_1 - t_2) bold(y) - (t_1 - t_2) bold(x)) \
+    &= f(t_2 bold(y) + (1 - t_2) bold(x)) \
+    & space space + nabla f(t_2 bold(y) + (1 - t_2) bold(x)) (t_1 - t_2) (bold(y) - bold(x)).
   $
-  and
+  That is
   $
-    t_2 bold(y) + (1 - t_2) bold(x) in bold(op("dom")) f.
+    g(t_1) gt.eq g(t_2) + g'(t_2) (t_1 - t_2).
   $
+  From lemma, since $g$ is convex, then $f$ is convex.
 ]
 
 

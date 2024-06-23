@@ -1,7 +1,7 @@
 #import "@preview/unequivocal-ams:0.1.0": ams-article, theorem, proof
 
 #show: ams-article.with(
-  title: [Mathematical Theorems],
+  title: [CONVEX ANALYSIS WORKSHOP],
   authors: (
     (
       name: "Ryuto Saito",
@@ -15,7 +15,6 @@
 #import "@preview/ctheorems:1.1.2": *
 #show: thmrules.with(qed-symbol: $square$)
 
-#set page(width: 16cm, height: auto, margin: 1.5cm)
 #set heading(numbering: "1.1.")
 
 #let theorem = thmbox("theorem", "Theorem", fill: rgb("#eeffee"))

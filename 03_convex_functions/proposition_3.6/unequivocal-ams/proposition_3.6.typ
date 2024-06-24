@@ -83,10 +83,10 @@
     f(y) gt.eq f(x) + f'(x) (y - x)
   $
   for all $x$ and $y$ in $bold(op("dom")) f$.
-]
+] <single>
 
 #lemma[
-  Let $f : RR^n -> RR, g : RR -> RR, bold(x), bold(y) in RR^n, t in [0, 1]$ and
+  Let $f : RR^n -> RR union {oo}, g : RR -> RR union {oo}, bold(x), bold(y) in RR^n, t in [0, 1]$ and
   $
     g(t) = f(t bold(y) + (1-t) bold(x)).
   $
@@ -95,7 +95,7 @@
 
 #proof[
   $(==>)$
-  Let $theta in [0, 1]$.
+  Let $theta in [0, 1]$ and $bold(x), bold(y) in bold(op("dom")) f$.
   For any $t_1, t_2 in RR$,
   $
     & space space space g(theta t_1 + (1-theta) t_2) \
@@ -103,7 +103,7 @@
     &= f(theta t_1 bold(y) + (1 - theta) t_2 bold(y) + bold(x) - theta t_1 bold(x) - (1 - theta) t_2 bold(x)) \
     &= f(theta t_1 bold(y) + theta bold(x) - theta t_1 bold(x) + (1 - theta) t_2 bold(y) + (1 - theta) bold(x) - (1 - theta) t_2 bold(x)) \
     &= f(theta (t_1 bold(y) + (1 - t_1) bold(x)) + (1 - theta) (t_2 bold(y) + (1 - t_2) bold(x))) \
-    &gt.eq theta f(t_1 bold(y) + (1 - t_1) bold(x)) +  (1 - theta) f(t_1 bold(y) + (1 - t_1) bold(x)) \
+    &lt.eq theta f(t_1 bold(y) + (1 - t_1) bold(x)) +  (1 - theta) f(t_1 bold(y) + (1 - t_1) bold(x)) \
     &= theta g(t_1) + (1 - theta) g(t_2)
   $
   Thus, $g$ is convex. \
@@ -170,8 +170,8 @@
     &= nabla f(t bold(y) + (1-t) bold(x))^upright(T) (bold(y) - bold(x)).
   $
   $(==>)$
-  Assume $f$ is convex. Then, $g$ is convex.
-  By lemma, we have
+  Assume $f$ is convex. From @fg, $g$ is convex.
+  From @single, we have
   $
     g(1) gt.eq g(0) + g'(0),
   $

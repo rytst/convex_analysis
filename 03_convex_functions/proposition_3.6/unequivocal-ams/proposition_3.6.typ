@@ -78,7 +78,7 @@
 == Lemma
 
 #lemma[
-  A differentiable function $f : RR -> RR$ is convex if and only if
+  A differentiable function $f : RR -> RR union {oo}$ is convex if and only if
   $
     f(y) gt.eq f(x) + f'(x) (y - x)
   $
@@ -95,8 +95,8 @@
 
 #proof[
   $(==>)$
-  Let $theta in [0, 1]$ and $bold(x), bold(y) in bold(op("dom")) f$.
-  For any $t_1, t_2 in RR$,
+  Let $theta in [0, 1]$.
+  For any $t_1, t_2 in bold(op("dom")) g$,
   $
     & space space space g(theta t_1 + (1-theta) t_2) \
     &= f((theta t_1 + (1 - theta) t_2) bold(y) + (1 - (theta t_1 + (1 - theta) t_2)) bold(x)) \

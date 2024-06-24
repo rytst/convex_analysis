@@ -85,6 +85,42 @@
   for all $x$ and $y$ in $bold(op("dom")) f$.
 ]
 
+#lemma[
+  Let $f : RR^n -> RR, g : RR -> RR, bold(x), bold(y) in RR^n, t in [0, 1]$ and
+  $
+    g(t) = f(t bold(y) + (1-t) bold(x)).
+  $
+  Then, $g$ is convex if and only if $f$ is convex.
+] <fg>
+
+#proof[
+  $(==>)$
+  Let $theta in [0, 1]$.
+  For any $t_1, t_2 in RR$,
+  $
+    & space space space g(theta t_1 + (1-theta) t_2) \
+    &= f((theta t_1 + (1 - theta) t_2) bold(y) + (1 - (theta t_1 + (1 - theta) t_2)) bold(x)) \
+    &= f(theta t_1 bold(y) + (1 - theta) t_2 bold(y) + bold(x) - theta t_1 bold(x) - (1 - theta) t_2 bold(x)) \
+    &= f(theta t_1 bold(y) + theta bold(x) - theta t_1 bold(x) + (1 - theta) t_2 bold(y) + (1 - theta) bold(x) - (1 - theta) t_2 bold(x)) \
+    &= f(theta (t_1 bold(y) + (1 - t_1) bold(x)) + (1 - theta) (t_2 bold(y) + (1 - t_2) bold(x))) \
+    &gt.eq theta f(t_1 bold(y) + (1 - t_1) bold(x)) +  (1 - theta) f(t_1 bold(y) + (1 - t_1) bold(x)) \
+    &= theta g(t_1) + (1 - theta) g(t_2)
+  $
+  Thus, $g$ is convex. \
+  \
+
+  $(<==)$
+  Let $bold(x), bold(y) in bold(op("dom")) f$ and $t in RR$.
+  For any $theta in [0, 1]$,
+  $
+    f(theta bold(y) + (1 - theta) bold(x)) &= g(theta) \
+    &= g(theta dot 1 + (1- theta) dot 0) \
+    &lt.eq theta g(1) + (1- theta) g(0) \
+    &= theta f(bold(y)) + (1 - theta) f(bold(x))
+  $
+  Thus, $f$ is convex.
+]
+
 == Exercise
 
 #proposition("First-order convexity condition")[
@@ -164,7 +200,7 @@
   $
     g(t_1) gt.eq g(t_2) + g'(t_2) (t_1 - t_2).
   $
-  From lemma, since $g$ is convex, then $f$ is convex.
+  From @fg, since $g$ is convex, then $f$ is convex.
 ]
 
 

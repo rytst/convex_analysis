@@ -50,17 +50,19 @@
 
 = Convex functions
 
+I made this material referring to @Boyd.
+
 == Definitions
 
 
 #definition("Convex function")[
-  Let $S subset.eq RR^n$. A function $f colon S -> RR union {oo}$ is convex if $bold(op("dom")) f$ is a convex set and
+  A function $f colon RR^n -> RR union {oo}$ is convex if $bold(op("dom")) f$ is a convex set and
   $
     forall bold(x), bold(y) in bold(op("dom")) f, forall t in [0, 1], f(t bold(x) + (1-t) bold(y) lt.eq t f(bold(x)) + (1-t) f(bold(y)))
   $
   where $bold(op("dom")) f$ is the effective domain of $f$:
   $
-    bold(op("dom")) f := {bold(x) in S | f(bold(x)) < oo}.
+    bold(op("dom")) f := {bold(x) | f(bold(x)) < oo}.
   $
 ]
 
@@ -103,7 +105,7 @@
     &= f(theta t_1 bold(y) + (1 - theta) t_2 bold(y) + bold(x) - theta t_1 bold(x) - (1 - theta) t_2 bold(x)) \
     &= f(theta t_1 bold(y) + theta bold(x) - theta t_1 bold(x) + (1 - theta) t_2 bold(y) + (1 - theta) bold(x) - (1 - theta) t_2 bold(x)) \
     &= f(theta (t_1 bold(y) + (1 - t_1) bold(x)) + (1 - theta) (t_2 bold(y) + (1 - t_2) bold(x))) \
-    &lt.eq theta f(t_1 bold(y) + (1 - t_1) bold(x)) +  (1 - theta) f(t_1 bold(y) + (1 - t_1) bold(x)) \
+    &lt.eq theta f(t_1 bold(y) + (1 - t_1) bold(x)) +  (1 - theta) f(t_2 bold(y) + (1 - t_2) bold(x)) \
     &= theta g(t_1) + (1 - theta) g(t_2)
   $
   Thus, $g$ is convex. \
@@ -188,13 +190,13 @@
   $
     & space space space f(t_1 bold(y) + (1 - t_1) bold(x)) \
     &gt.eq f(t_2 bold(y) + (1 - t_2) bold(x)) \
-    & space space + nabla f(t_2 bold(y) + (1 - t_2) bold(x)) (t_1 bold(y) + (1 - t_1) bold(x) - (t_2 bold(y) + (1 - t_2) bold(x))) \
+    & space space + nabla f(t_2 bold(y) + (1 - t_2) bold(x))^upright(T) (t_1 bold(y) + (1 - t_1) bold(x) - (t_2 bold(y) + (1 - t_2) bold(x))) \
     &= f(t_2 bold(y) + (1 - t_2) bold(x)) \
-    & space space + nabla f(t_2 bold(y) + (1 - t_2) bold(x)) ((t_1 - t_2) bold(y) + (1 - t_1 - (1 - t_2)) bold(x)) \
+    & space space + nabla f(t_2 bold(y) + (1 - t_2) bold(x))^upright(T) ((t_1 - t_2) bold(y) + (1 - t_1 - (1 - t_2)) bold(x)) \
     &= f(t_2 bold(y) + (1 - t_2) bold(x)) \
-    & space space + nabla f(t_2 bold(y) + (1 - t_2) bold(x)) ((t_1 - t_2) bold(y) - (t_1 - t_2) bold(x)) \
+    & space space + nabla f(t_2 bold(y) + (1 - t_2) bold(x))^upright(T) ((t_1 - t_2) bold(y) - (t_1 - t_2) bold(x)) \
     &= f(t_2 bold(y) + (1 - t_2) bold(x)) \
-    & space space + nabla f(t_2 bold(y) + (1 - t_2) bold(x)) (t_1 - t_2) (bold(y) - bold(x)).
+    & space space + nabla f(t_2 bold(y) + (1 - t_2) bold(x))^upright(T) (t_1 - t_2) (bold(y) - bold(x)).
   $
   That is
   $
@@ -202,8 +204,4 @@
   $
   From @fg, since $g$ is convex, then $f$ is convex.
 ]
-
-
-@Boyd
-
 

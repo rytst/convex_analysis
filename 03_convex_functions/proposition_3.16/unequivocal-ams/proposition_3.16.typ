@@ -121,7 +121,7 @@ I made this material referring to @Boyd.
   $
     h(g(t bold(x) + (1 - t) bold(y))) <= h(t g(bold(x)) + (1 - t) g(bold(y))).
   $ <h_mono>
-  From @h_mono and @g_dom, we get
+  From @g_dom and @h_mono, we get
   $
     h(g(t bold(x) + (1 - t) bold(y))) < oo,
   $
@@ -145,8 +145,45 @@ I made this material referring to @Boyd.
   Then, we have shown that $f$ is convex if $h$ is convex and nondecreasing and $g$ is convex.
 
 
-  Next, we prove that $f$ is convex if $h$ is convex and nonincreasing and $g$ is concave.
 
+
+  Next, we prove that $f$ is convex if $h$ is convex and nonincreasing and $g$ is concave.
+  Let $bold(x), bold(y) in bold(op("dom")) f$, and $t in [0,1].$
+  Since $bold(x), bold(y) in bold(op("dom")) f$, we have $bold(x), bold(y) in bold(op("dom")) g$
+  and $g(bold(x)), g(bold(y)) in bold(op("dom")) h.$
+  From the convexity of $bold(op("dom")) -g$, $t bold(x) + (1 - t) bold(y) in bold(op("dom")) -g.$
+  Then, since $-g$ is convex, we have
+  $
+    - g(t bold(x) + (1 - t) bold(y)) <= t (- g(bold(x))) + (1 - t) (- g(bold(y))).
+  $
+  That is
+  $
+    g(t bold(x) + (1 - t) bold(y)) >= t g(bold(x)) + (1 - t) g(bold(y)).
+  $ <g1_conv>
+  Since $g(bold(x)), g(bold(y)) in bold(op("dom")) h$ and $bold(op("dom")) h$ is convex, we have
+  $t g(bold(x)) + (1 - t) g(bold(y)) in bold(op("dom")) h$.
+  Then,
+  $
+    h(t g(bold(x)) + (1 - t) g(bold(y))) < oo.
+  $ <g1_dom>
+  Using the assumption that $h$ is nonincreasing and @g1_conv, it follows that
+  $
+    h(g(t bold(x) + (1 - t) bold(y))) <= h(t g(bold(x)) + (1 - t) g(bold(y))).
+  $ <h1_mono>
+  From @g1_dom and @h1_mono, we get
+  $
+    h(g(t bold(x) + (1 - t) bold(y))) < oo,
+  $
+  which means $g(t bold(x) + (1 - t) bold(y)) in bold(op("dom")) h$.
+  Since $t bold(x) + (1 - t) bold(y) in bold(op("dom")) g$
+  and $g(t bold(x) + (1 - t) bold(y)) in bold(op("dom")) h$,
+  we get $t bold(x) + (1 - t) bold(y) in bold(op("dom")) f$.
+  Therefore, $bold(op("dom")) f$ is convex set.
+  From the convexity of $h$, we have
+  $
+    h(t g(bold(x)) + (1 - t) g(bold(y))) <= t h(g(bold(x))) + (1 - t) h(g(bold(y))).
+  $ <h1_conv>
+  From @h1_mono and @h1_conv, we get
   $
     h(g(t bold(x) + (1 - t) bold(y))) <= t h(g(bold(x))) + (1 - t) h(g(bold(y))).
   $
@@ -154,7 +191,6 @@ I made this material referring to @Boyd.
   $
     f(t bold(x) + (1 - t) bold(y)) <= t f(bold(x)) + (1 - t) f(bold(y)).
   $
-
   Then, we have shown that $f$ is convex if $h$ is convex and nonincreasing and $g$ is cocave.
 
 ]

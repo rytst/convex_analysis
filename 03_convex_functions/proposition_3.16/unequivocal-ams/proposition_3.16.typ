@@ -101,7 +101,7 @@ I made this material referring to @Boyd.
   Let $bold(x), bold(y) in bold(op("dom")) f$, and $t in [0,1].$
   Since $bold(x), bold(y) in bold(op("dom")) f$, we have $bold(x), bold(y) in bold(op("dom")) g$
   and $g(bold(x)), g(bold(y)) in bold(op("dom")) h.$
-  From convexity of $bold(op("dom")) g$, $t bold(x) + (1 - t) bold(y) in bold(op("dom")) g.$
+  From the convexity of $bold(op("dom")) g$, $t bold(x) + (1 - t) bold(y) in bold(op("dom")) g.$
   Then, since $g$ is convex, we have
   $
     g(t bold(x) + (1 - t) bold(y)) <= t g(bold(x)) + (1 - t) g(bold(y)).
@@ -121,14 +121,16 @@ I made this material referring to @Boyd.
   and $t bold(x) + (1 - t) bold(y) in bold(op("dom")) h$,
   we get $t bold(x) + (1 - t) bold(y) in bold(op("dom")) f$.
   Therefore, $bold(op("dom")) f$ is convex set.
-  
+  Using the assumption that $h$ is nondecreasing and @g_conv, it follows that
+  $
+    h(g(t bold(x) + (1 - t) bold(y))) <= h(t g(bold(x)) + (1 - t) g(bold(y))).
+  $ <h_mono>
+  From the convexity of $h$, 
+  $
+    h(t g(bold(x)) + (1 - t) g(bold(y))) <= t h(g(bold(x))) + (1 - t) h(g(bold(y))).
+  $ <h_conv>
 
-
-
-
- 
-
-  From  and  , we get
+  From @h_mono and @h_conv , we get
   $
     h(g(t bold(x) + (1 - t) bold(y))) <= t h(g(bold(x))) + (1 - t) h(g(bold(y))).
   $

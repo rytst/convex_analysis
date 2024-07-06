@@ -79,44 +79,6 @@ I made this material referring to @Boyd.
 ]
 
 
-== Lemma
-
-#lemma[
-  Let $f : RR^n -> RR union {oo}, g : RR -> RR union {oo}, bold(x), bold(y) in RR^n, t in [0, 1]$ and
-  $
-    g(t) = f(t bold(y) + (1-t) bold(x)).
-  $
-  Then, $g$ is convex if and only if $f$ is convex.
-] <fg>
-
-#proof[
-  $(==>)$
-  Let $theta in [0, 1]$.
-  For any $t_1, t_2 in bold(op("dom")) g$,
-  $
-    & space space space g(theta t_1 + (1-theta) t_2) \
-    &= f((theta t_1 + (1 - theta) t_2) bold(y) + (1 - (theta t_1 + (1 - theta) t_2)) bold(x)) \
-    &= f(theta t_1 bold(y) + (1 - theta) t_2 bold(y) + bold(x) - theta t_1 bold(x) - (1 - theta) t_2 bold(x)) \
-    &= f(theta t_1 bold(y) + theta bold(x) - theta t_1 bold(x) + (1 - theta) t_2 bold(y) + (1 - theta) bold(x) - (1 - theta) t_2 bold(x)) \
-    &= f(theta (t_1 bold(y) + (1 - t_1) bold(x)) + (1 - theta) (t_2 bold(y) + (1 - t_2) bold(x))) \
-    &lt.eq theta f(t_1 bold(y) + (1 - t_1) bold(x)) +  (1 - theta) f(t_2 bold(y) + (1 - t_2) bold(x)) \
-    &= theta g(t_1) + (1 - theta) g(t_2)
-  $
-  Thus, $g$ is convex. \
-  \
-
-  $(<==)$
-  Let $bold(x), bold(y) in bold(op("dom")) f$ and $t in RR$.
-  For any $theta in [0, 1]$,
-  $
-    f(theta bold(y) + (1 - theta) bold(x)) &= g(theta) \
-    &= g(theta dot 1 + (1- theta) dot 0) \
-    &lt.eq theta g(1) + (1- theta) g(0) \
-    &= theta f(bold(y)) + (1 - theta) f(bold(x))
-  $
-  Thus, $f$ is convex.
-]
-
 == Exercise
 
 #proposition("Scalar composition")[
@@ -135,18 +97,61 @@ I made this material referring to @Boyd.
 ]
 
 #proof[
-  First, we prove that $f$ is convex if $h$ is convex and nondecreasing and $g$ is convex.
+  First, we prove that $f$ is convex if $h$ is convex and nondecreasing and $g$ is convex. \
   Let $bold(x), bold(y) in bold(op("dom")) f$, and $t in [0,1].$
   Since $bold(x), bold(y) in bold(op("dom")) f$, we have $bold(x), bold(y) in bold(op("dom")) g$
   and $g(bold(x)), g(bold(y)) in bold(op("dom")) h.$
-  From convexity of $g$, $t bold(x) + (1 - t) bold(y) in bold(op("dom")) g.$
+  From convexity of $bold(op("dom")) g$, $t bold(x) + (1 - t) bold(y) in bold(op("dom")) g.$
   Then, since $g$ is convex, we have
   $
-    g(t bold(x) + (1 - t) bold(y)) <= t g(bold(x)) + (1 - t) g(bold(y))
+    g(t bold(x) + (1 - t) bold(y)) <= t g(bold(x)) + (1 - t) g(bold(y)).
+  $ <g_conv>
+  Since $g(bold(x)), g(bold(y)) in bold(op("dom")) h$ and $bold(op("dom")) h$ is convex, we have
+  $t g(bold(x)) + (1 - t) g(bold(y)) in bold(op("dom")) h$.
+  Then,
   $
+    t g(bold(x)) + (1 - t) g(bold(y)) < oo.
+  $ <g_dom>
+  From @g_conv and @g_dom, we get
+  $
+    g(t bold(x) + (1 - t) bold(y)) < oo,
+  $
+  which means $t bold(x) + (1 - t) bold(y) in bold(op("dom")) h$.
+  Since $t bold(x) + (1 - t) bold(y) in bold(op("dom")) g$
+  and $t bold(x) + (1 - t) bold(y) in bold(op("dom")) h$,
+  we get $t bold(x) + (1 - t) bold(y) in bold(op("dom")) f$.
+  Therefore, $bold(op("dom")) f$ is convex set.
+  
 
+
+
+
+ 
+
+  From  and  , we get
+  $
+    h(g(t bold(x) + (1 - t) bold(y))) <= t h(g(bold(x))) + (1 - t) h(g(bold(y))).
+  $
+  That is
+  $
+    f(t bold(x) + (1 - t) bold(y)) <= t f(bold(x)) + (1 - t) f(bold(y)).
+  $
+  Then, we have shown that $f$ is convex if $h$ is convex and nondecreasing and $g$ is convex.
 
 
   Next, we prove that $f$ is convex if $h$ is convex and nonincreasing and $g$ is concave.
+
+
+
+  $
+    h(g(t bold(x) + (1 - t) bold(y))) <= t h(g(bold(x))) + (1 - t) h(g(bold(y))).
+  $
+  That is
+  $
+    f(t bold(x) + (1 - t) bold(y)) <= t f(bold(x)) + (1 - t) f(bold(y)).
+  $
+
+  Then, we have shown that $f$ is convex if $h$ is convex and nonincreasing and $g$ is cocave.
+
 ]
 

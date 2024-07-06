@@ -56,7 +56,7 @@ I made this material referring to @Boyd.
 
 
 #definition("Convex function")[
-  A function $f colon RR^n -> RR union {oo}$ is convex if $bold(op("dom")) f$ is a convex set and
+  A function $f colon RR^n -> RR union {oo}$ is $italic("convex")$ if $bold(op("dom")) f$ is a convex set and
   $
     forall bold(x), bold(y) in bold(op("dom")) f, forall t in [0, 1], f(t bold(x) + (1-t) bold(y) lt.eq t f(bold(x)) + (1-t) f(bold(y)))
   $
@@ -64,6 +64,11 @@ I made this material referring to @Boyd.
   $
     bold(op("dom")) f := {bold(x) | f(bold(x)) < oo}.
   $
+]
+
+
+#definition("Concave function")[
+  A function $f$ is said to be $italic("concave")$ if $-f$ is convex.
 ]
 
 
@@ -110,27 +115,26 @@ I made this material referring to @Boyd.
   $t g(bold(x)) + (1 - t) g(bold(y)) in bold(op("dom")) h$.
   Then,
   $
-    t g(bold(x)) + (1 - t) g(bold(y)) < oo.
+    h(t g(bold(x)) + (1 - t) g(bold(y))) < oo.
   $ <g_dom>
-  From @g_conv and @g_dom, we get
-  $
-    g(t bold(x) + (1 - t) bold(y)) < oo,
-  $
-  which means $t bold(x) + (1 - t) bold(y) in bold(op("dom")) h$.
-  Since $t bold(x) + (1 - t) bold(y) in bold(op("dom")) g$
-  and $t bold(x) + (1 - t) bold(y) in bold(op("dom")) h$,
-  we get $t bold(x) + (1 - t) bold(y) in bold(op("dom")) f$.
-  Therefore, $bold(op("dom")) f$ is convex set.
   Using the assumption that $h$ is nondecreasing and @g_conv, it follows that
   $
     h(g(t bold(x) + (1 - t) bold(y))) <= h(t g(bold(x)) + (1 - t) g(bold(y))).
   $ <h_mono>
-  From the convexity of $h$, 
+  From @h_mono and @g_dom, we get
+  $
+    h(g(t bold(x) + (1 - t) bold(y))) < oo,
+  $
+  which means $g(t bold(x) + (1 - t) bold(y)) in bold(op("dom")) h$.
+  Since $t bold(x) + (1 - t) bold(y) in bold(op("dom")) g$
+  and $g(t bold(x) + (1 - t) bold(y)) in bold(op("dom")) h$,
+  we get $t bold(x) + (1 - t) bold(y) in bold(op("dom")) f$.
+  Therefore, $bold(op("dom")) f$ is convex set.
+  From the convexity of $h$, we have
   $
     h(t g(bold(x)) + (1 - t) g(bold(y))) <= t h(g(bold(x))) + (1 - t) h(g(bold(y))).
   $ <h_conv>
-
-  From @h_mono and @h_conv , we get
+  From @h_mono and @h_conv, we get
   $
     h(g(t bold(x) + (1 - t) bold(y))) <= t h(g(bold(x))) + (1 - t) h(g(bold(y))).
   $

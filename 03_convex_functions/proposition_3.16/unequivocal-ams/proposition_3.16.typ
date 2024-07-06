@@ -143,8 +143,6 @@ I made this material referring to @Boyd.
 
   Next, we prove that $f$ is convex if $h$ is convex and nonincreasing and $g$ is concave.
 
-
-
   $
     h(g(t bold(x) + (1 - t) bold(y))) <= t h(g(bold(x))) + (1 - t) h(g(bold(y))).
   $

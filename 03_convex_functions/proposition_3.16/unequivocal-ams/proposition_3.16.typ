@@ -157,7 +157,7 @@ I made this material referring to @Boyd.
   $
     - g(t bold(x) + (1 - t) bold(y)) <= t (- g(bold(x))) + (1 - t) (- g(bold(y))).
   $
-  That is
+  Multiplying this inequality by $-1$ yields
   $
     g(t bold(x) + (1 - t) bold(y)) >= t g(bold(x)) + (1 - t) g(bold(y)).
   $ <g1_conv>

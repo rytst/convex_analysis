@@ -58,7 +58,7 @@ I made this material referring to @Boyd.
 #definition("Convex function")[
   A function $f colon RR^n -> RR union {oo}$ is $italic("convex")$ if $bold(op("dom")) f$ is a convex set and
   $
-    forall bold(x), bold(y) in bold(op("dom")) f, forall t in [0, 1], f(t bold(x) + (1-t) bold(y)) lt.eq t f(bold(x)) + (1-t) f(bold(y)))
+    forall bold(x), bold(y) in bold(op("dom")) f, forall t in [0, 1], f(t bold(x) + (1-t) bold(y)) lt.eq t f(bold(x)) + (1-t) f(bold(y))
   $
   where $bold(op("dom")) f$ is the effective domain of $f$:
   $

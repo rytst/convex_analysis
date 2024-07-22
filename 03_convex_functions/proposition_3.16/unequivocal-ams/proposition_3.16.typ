@@ -153,7 +153,6 @@ I made this material referring to @Boyd.
   and $g(bold(x)), g(bold(y)) in bold(op("dom")) h.$ Recall that $g(bold(x)), g(bold(y)), g(t bold(x) + (1 - t) bold(y)) in RR$,
   we have $-g(bold(x)) < oo$, $-g(bold(y)) < oo$ and $g(t bold(x) + (1 - t) bold(y)) < oo$.
   That is $bold(x), bold(y) in bold(op("dom")) -g$ and $t bold(x) + (1 - t) bold(y) in bold(op("dom")) g$.
-  Since $t bold(x) + (1 - t) bold(y) in bold(op("dom")) g$, $bold(op("dom")) g$ is convex.
   From the convexity of $bold(op("dom")) -g$, $t bold(x) + (1 - t) bold(y) in bold(op("dom")) -g.$
   Then, since $-g$ is convex, we have
   $

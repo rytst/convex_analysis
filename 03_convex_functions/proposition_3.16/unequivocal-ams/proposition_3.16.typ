@@ -148,10 +148,12 @@ I made this material referring to @Boyd.
 
 
   Next, we prove that $f$ is convex if $h$ is convex and nonincreasing and $g$ is concave.
-  Let $bold(x), bold(y) in bold(op("dom")) f$, and $t in [0,1].$
+  Let $bold(x), bold(y) in bold(op("dom")) f$, $t in [0,1]$ and $g : RR^n -> RR.$
   Since $bold(x), bold(y) in bold(op("dom")) f$, we have $bold(x), bold(y) in bold(op("dom")) g$
-  and $g(bold(x)), g(bold(y)) in bold(op("dom")) h.$ Recall that $g(bold(x)), g(bold(y)) in RR union {oo}$, we have $-g(bold(x)) < oo$ and $-g(bold(y)) < oo$.
-  That is $bold(x), bold(y) in bold(op("dom")) -g.$
+  and $g(bold(x)), g(bold(y)) in bold(op("dom")) h.$ Recall that $g(bold(x)), g(bold(y)), g(t bold(x) + (1 - t) bold(y)) in RR$,
+  we have $-g(bold(x)) < oo$, $-g(bold(y)) < oo$ and $g(t bold(x) + (1 - t) bold(y)) < oo$.
+  That is $bold(x), bold(y) in bold(op("dom")) -g$ and $t bold(x) + (1 - t) bold(y) in bold(op("dom")) g$.
+  Since $t bold(x) + (1 - t) bold(y) in bold(op("dom")) g$, $bold(op("dom")) g$ is convex.
   From the convexity of $bold(op("dom")) -g$, $t bold(x) + (1 - t) bold(y) in bold(op("dom")) -g.$
   Then, since $-g$ is convex, we have
   $

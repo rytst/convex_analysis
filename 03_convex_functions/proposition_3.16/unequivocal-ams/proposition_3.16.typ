@@ -192,7 +192,7 @@ I made this material referring to @Boyd.
   $
     f(t bold(x) + (1 - t) bold(y)) <= t f(bold(x)) + (1 - t) f(bold(y)).
   $
-  Then, we have shown that $f$ is convex if $h$ is convex and nonincreasing and $g$ is cocave.
+  Then, we have shown that $f$ is convex if $h$ is convex and nonincreasing and $g$ is concave.
 
 ]
 
